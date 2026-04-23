@@ -9,8 +9,6 @@ BACKEND_DIR_NAME = 'backend'
 FRONTEND_DIR_NAME = 'frontend'
 NGINX_DIR_NAME = 'nginx'
 DEPLOY_INFO_FILE_NAME = 'tests.yml'
-KITTYGRAM_DOMAIN_KEY = 'kittygram_domain'
-TASKI_DOMAIN_KEY = 'taski_domain'
 DOCKERFILE_NAME = 'Dockerfile'
 DOCKERHUB_USERNAME_KEY = 'dockerhub_username'
 WORKFLOW_FILE = 'kittygram_workflow.yml'
@@ -102,27 +100,5 @@ def deploy_info_file_content(
 def expected_deploy_info_file_content() -> dict[str, str]:
     return {
         'repo_owner': 'ваше имя пользователя на GitHub',
-        TASKI_DOMAIN_KEY: 'ссылка для доступа к проекту `Taski`',
-        KITTYGRAM_DOMAIN_KEY: 'ссылка для доступа к проекту Kittygram',
         'dockerhub_username': 'ваше имя пользователя на Docker Hub',
     }
-
-
-@pytest.fixture(params=(TASKI_DOMAIN_KEY, KITTYGRAM_DOMAIN_KEY))
-def link_key(request) -> str:
-    return request.param
-
-
-@pytest.fixture(scope='session')
-def link_keys() -> tuple[str, str]:
-    return (KITTYGRAM_DOMAIN_KEY, TASKI_DOMAIN_KEY)
-
-
-@pytest.fixture(scope='session')
-def kittygram_link_key() -> str:
-    return KITTYGRAM_DOMAIN_KEY
-
-
-@pytest.fixture(scope='session')
-def taski_link_key() -> str:
-    return TASKI_DOMAIN_KEY
