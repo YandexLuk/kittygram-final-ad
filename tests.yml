@@ -1,4 +1,4 @@
 repo_owner: ulpipi
-kittygram_domain: https://kittygram.example.com
-taski_domain: https://taski.example.com
+kittygram_domain: 
+taski_domain: 
 dockerhub_username: ulpipi
